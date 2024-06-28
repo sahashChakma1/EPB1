@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+import os
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -37,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'epb_app',
+    'accounts',
 ]
 
 MIDDLEWARE = [
@@ -116,8 +120,43 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = 'static/'
-
+STATICFILES_DIRS = [
+        os.path.join(BASE_DIR, 'static'),
+]
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
+
+#to read Excel file
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'epb_app.auth_backend.ExcelAuthBackend',
+]
+
+EXCEL_FILE_PATH = os.path.join(BASE_DIR, 'data','OrganizedData_with_Filters1.xlsx')
+
+
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'root': {
+        'handlers': ['console'],
+        'level': 'WARNING',
+    },
+}
+
+LOGIN_REDIRECT_URL = '/'  # Or wherever you want users to go after login
+LOGOUT_REDIRECT_URL = '/'  # Or wherever you want users to go after logout
+
+MEDIA_URL = '/media/' #
+MEDIA_ROOT =BASE_DIR / 'media' #

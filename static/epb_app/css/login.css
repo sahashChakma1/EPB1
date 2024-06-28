@@ -1,0 +1,144 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f4f8;
+}
+
+.logo-container {
+    position: absolute;
+    top: 20px; /* Adjust as needed */
+    right: 20px; /* Adjust as needed */
+}
+
+.logo-container img {
+    width: 50px; /* Adjust as needed */
+    height: auto;
+}
+
+.container {
+    display: flex;
+    width: 100vw; /* Fill the entire viewport width */
+    height: 100vh; /* Fill the entire viewport height */
+    max-width: 100%; /* Ensure it stretches to the full width */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.welcome-section {
+    position: relative;
+    background: linear-gradient(to bottom, #2c5fbe, #396eca);
+    color: white;
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    overflow: hidden; /* Hide overflow for the glare effect */
+}
+
+.welcome-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0.2) 100%);
+    transform: rotate(30deg);
+    animation: glare 3s infinite linear;
+}
+
+@keyframes glare {
+    0% {
+        transform: rotate(30deg) translate(-100%, -100%);
+    }
+    100% {
+        transform: rotate(30deg) translate(100%, 100%);
+    }
+}
+
+.welcome-section h1 {
+    font-size: 3em;
+    margin: 0;
+    margin-bottom: 30px; /* Adjusted negative margin to move text up further */
+}
+
+.login-section {
+    background-color: white;
+    padding: 60px;
+    flex: 1; /* Takes up remaining space */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%; /* Fills the entire height of .container */
+    width: 100%; /* Fills the entire width of .container */
+    margin-top: -60px; /* Pulls up the entire login section */
+}
+
+.login-section h2 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.login-section p {
+    color: #888;
+    margin: 5px 0;
+    text-align: left;
+}
+
+.login-section form {
+    width: 100%;
+    max-width: 400px; /* Adjusted maximum width */
+    display: flex;
+    flex-direction: column;
+}
+
+.login-section label {
+    margin: 10px 0 5px;
+    text-align: left;
+}
+
+.login-section input {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.login-section a {
+    color: #1e3c72;
+    text-align: right;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.login-section button {
+    padding: 10px;
+    background-color: #2e64c7;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.login-section button:hover {
+    background-color: #2f66c5;
+}
+
+.login-section p a {
+    color: #356eda;
+}

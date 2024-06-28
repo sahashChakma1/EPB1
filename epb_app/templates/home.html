@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<div class="container">
+    <form method="POST" action="{% url 'home' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="course_category">Course Category</label>
+            <div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="course_category" id="ug" value="UG">
+                    <label class="form-check-label" for="ug">UG</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="course_category" id="pg" value="PG">
+                    <label class="form-check-label" for="pg">PG</label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="report_name">Report Name</label>
+            <input type="text" required type="text" class="form-control" id="report_name" name="report_name">
+        </div>
+        <div class="form-group">
+            <label for="upload_files">Upload Files</label>
+            <div class="upload-box">
+                Drag & drop files or <a href="#" id="browse-link">Browse</a><br>
+                <small class="form-text text-muted">Supported formats: PDF</small>
+            </div>
+            <input type="file" id="upload_files" name="upload_files" style="display: none;" accept="application/pdf">
+        </div>
+        <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        document.getElementById('browse-link').addEventListener('click', function (event) {
+            event.preventDefault();
+            document.getElementById('upload_files').click();
+        });
+    });
+</script>
+{% endblock %}
