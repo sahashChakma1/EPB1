@@ -18,7 +18,7 @@ def home(request):
                 upload_files=upload_files,
             )
 
-            return redirect('/home/')
+            return redirect('success')
             return render(request, 'home.html', {'success': True})  # Indicate success in context
 
     return render(request, 'home.html')  # Handle GET request

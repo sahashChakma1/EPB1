@@ -11,7 +11,7 @@ urlpatterns = [
     path('apply/', views.apply_now, name='apply_now'),
     path('accounts/', include('django.contrib.auth.urls')),
     path('logout/', LogoutView.as_view(), name='logout'),
-    path('success/', views.success, name='success')
+    path('home/success/', views.success, name='success')
 ]
    
     

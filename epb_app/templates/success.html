@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+
+<!-- filter.html -->
+   <div class="content">
+            <form id="filterForm">
+                <div class="form-group">
+                    <label for="report-name">Report Name</label>
+                    <select id="report-name" name="report-name">
+                        <option value="report1">Report 1</option>
+                        <option value="report2">Report 2</option>
+                        <option value="report3">Report 3</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="filter1">Filter 1</label>
+                    <select id="filter1" name="filter1">
+                        <option value="option1">Option 1</option>
+                        <option value="option2">Option 2</option>
+                        <option value="option3">Option 3</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="filter2">Filter 2</label>
+                    <select id="filter2" name="filter2">
+                        <option value="option1">Option 1</option>
+                        <option value="option2">Option 2</option>
+                        <option value="option3">Option 3</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="filter3">Filter 3</label>
+                    <select id="filter3" name="filter3">
+                        <option value="option1">Option 1</option>
+                        <option value="option2">Option 2</option>
+                        <option value="option3">Option 3</option>
+                    </select>
+                </div>
+                <button type="submit" class="filter-button">Filter</button>
+            </form>
+        </div>
+    </div>
+ </body>
+</html>
+{% endblock %}
